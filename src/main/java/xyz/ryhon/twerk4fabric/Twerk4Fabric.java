@@ -144,7 +144,7 @@ public class Twerk4Fabric implements ModInitializer {
 				continue;
 
 			boolean affected = false;
-			if (b.getBlock() instanceof SpreadableBlock s) {
+			if (b.getBlock() instanceof SpreadableBlock) {
 				for (BlockPos dp : BlockPos.iterateOutwards(p.down(), 1, 2, 1)) {
 					if (world.getBlockState(dp).isOf(Blocks.DIRT) &&
 							world.getLightLevel(dp.up()) >= 9 &&
@@ -158,7 +158,7 @@ public class Twerk4Fabric implements ModInitializer {
 			} else if (b.getBlock() instanceof Degradable d) {
 				Optional<BlockState> res = d.getDegradationResult(b);
 				if (res.isPresent() && res.get() != b) {
-					d.tryDegrade(b, world, p, player.getRandom());
+					world.setBlockState(p, res.get());
 					affected = true;
 				}
 			} else if (b.getBlock() instanceof Fertilizable f) {
@@ -182,7 +182,7 @@ public class Twerk4Fabric implements ModInitializer {
 					ignoredPos.add(topPos.up());
 					affected = true;
 				}
-			} else if (b.getBlock() instanceof BuddingAmethystBlock a) {
+			} else if (b.getBlock() instanceof BuddingAmethystBlock) {
 				for (int j = 0; j < 6; j++) {
 					b.randomTick(world, p, new RiggedRandom() {
 						@Override
