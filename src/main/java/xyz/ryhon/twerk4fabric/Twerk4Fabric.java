@@ -195,7 +195,7 @@ public class Twerk4Fabric implements ModInitializer {
 				}
 				affected = true;
 			} else {
-				b.randomTick(world, pos, player.getRandom());
+				b.randomTick(world, p, player.getRandom());
 			}
 
 			if (affected) {
