@@ -154,7 +154,7 @@ public class Twerk4Fabric implements ModInitializer {
 					}
 				}
 				if (affected)
-					s.randomTick(b, world, p, player.getRandom());
+					b.randomTick(world, p, player.getRandom());
 			} else if (b.getBlock() instanceof Degradable d) {
 				Optional<BlockState> res = d.getDegradationResult(b);
 				if (res.isPresent() && res.get() != b) {
@@ -184,7 +184,7 @@ public class Twerk4Fabric implements ModInitializer {
 				}
 			} else if (b.getBlock() instanceof BuddingAmethystBlock a) {
 				for (int j = 0; j < 6; j++) {
-					a.randomTick(b, world, p, new RiggedRandom() {
+					b.randomTick(world, p, new RiggedRandom() {
 						@Override
 						public int nextInt(int bound) {
 							if (bound == Direction.values().length)
@@ -286,7 +286,7 @@ public class Twerk4Fabric implements ModInitializer {
 				ignoredBlocks.add(b);
 			}
 		} else {
-			ignoredBlocks.add(Blocks.GRASS);
+			ignoredBlocks.add(Blocks.SHORT_GRASS);
 			ignoredBlocks.add(Blocks.TALL_GRASS);
 		}
 
