@@ -288,6 +288,7 @@ public class Twerk4Fabric implements ModInitializer {
 		} else {
 			ignoredBlocks.add(Blocks.GRASS);
 			ignoredBlocks.add(Blocks.TALL_GRASS);
+			ignoredBlocks.add(Blocks.FERN);
 		}
 
 		saveConfig();
